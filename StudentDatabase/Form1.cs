@@ -76,7 +76,7 @@ namespace StudentDatabase
                             dr1.Read();
                             int id2 = Convert.ToInt32(dr1["ID"]);
                             dr1.Close();
-                            SqlCommand da = new SqlCommand($"insert into studentMarks(SubjectID,StudentID,SubjectMarks)\r\nvalues({id2},{id1},{student.marks});", con);
+                            SqlCommand da = new SqlCommand($"insert into studentMarks(studentRollno,SubjectID,SubjectName,StudentID,StudentName,SubjectMarks)\r\nvalues('{student.student_RollNo}',{id2},'{student.subject_Name}',{id1},'{student.student_Name}',{student.marks});", con);
 
                             da.ExecuteNonQuery();
 
@@ -102,7 +102,11 @@ namespace StudentDatabase
 
         }
 
-     
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SearchOption s1 = new SearchOption();
+            s1.Show();
+        }
     }
    
 }

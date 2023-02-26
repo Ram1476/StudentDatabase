@@ -64,6 +64,11 @@
       <DependentUpon>SearchOption.cs</DependentUpon>
     </Compile>
     <Compile Include="Students.cs" />
+    <Compile Include="StudentsRecordDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentsRecordDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +95,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="StudentMarks.csv" />
+    <None Include="StudentsRecordDataSet.xsc">
+      <DependentUpon>StudentsRecordDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StudentsRecordDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudentsRecordDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StudentsRecordDataSet.xss">
+      <DependentUpon>StudentsRecordDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
