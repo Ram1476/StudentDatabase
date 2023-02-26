@@ -23,12 +23,14 @@ namespace StudentDatabase
         {
             //Student Name, Student Roll No, Subject Name and Subject Marks.
             displayGrid.Visible = true;
+           
+             
             try
             {
                 SqlConnection Con = new SqlConnection("server = DESKTOP-39SGDTH\\SQLEXPRESS; Database = studentsRecord; integrated Security = true");
                 
                 
-                SqlDataAdapter cmd = new SqlDataAdapter($"Select StudentName,StudentRollNo,SubjectName,SubjectMarks from StudentMarks Where studentName = '{txtStName.Text}' or (studentRollNo = '{txtStRollNo.Text}' or subjectName = '{txtSubName.Text}');", Con);
+                SqlDataAdapter cmd = new SqlDataAdapter($"Select StudentName,StudentRollNo,SubjectName,SubjectMarks from StudentMarks Where studentName = '{txtStName.Text}' and (studentRollNo = '{txtStRollNo.Text}' and subjectName = '{txtSubName.Text}');", Con);
 
                 DataSet ds = new DataSet();
 
