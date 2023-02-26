@@ -1,0 +1,21 @@
+StudentName,StudentRollNumber,Subject Marks,Subject Name
+Jai,A101,56,Science
+Amar,A102,67,Science
+Nila,A103,62,Science
+Dhruv,A104,78,Science
+Ramu,A105,89,Science
+Jai,A101,55,Maths
+Amar,A102,45,Maths
+Nila,A103,78,Maths
+Dhruv,A104,66,Maths
+Ramu,A105,69,Maths
+Jai,A101,88,English
+Amar,A102,78,English
+Nila,A103,56,English
+Dhruv,A104,61,English
+Ramu,A105,74,English
+Jai,A101,92,Social
+Amar,A102,87,Social
+Nila,A103,68,Social
+Dhruv,A104,77,Social
+Ramu,A105,58,Social
