@@ -45,20 +45,7 @@ namespace StudentDatabase
                         foreach (var student in students)
                         {
 
-                            //Students student1 = new Students();
-                            //string rollno = student.student_RollNo;
-                            //foreach (var student2 in students) 
-                            //{
-                            //    if (student2.student_RollNo == rollno) 
-                            //    {
-                            //        student1.student_Name = student2.student_Name;
-                            //        student1.student_RollNo = student2.student_RollNo;
-                            //        student1.marks = student2.marks;
-                            //        student1.subject_Name = student2.subject_Name;
-                            //        adding.CreateStudents(student1);
-
-                            //    } 
-                            //}
+                        
 
                             count++;
                         }
