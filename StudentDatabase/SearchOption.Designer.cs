@@ -42,8 +42,8 @@
             this.studentMarksTableAdapter = new StudentDatabase.StudentsRecordDataSetTableAdapters.studentMarksTableAdapter();
             this.buttonViewAll = new System.Windows.Forms.Button();
             this.studentRollNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subjectMarksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -131,8 +131,8 @@
             this.displayGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.displayGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.studentRollNoDataGridViewTextBoxColumn,
-            this.subjectNameDataGridViewTextBoxColumn,
             this.studentNameDataGridViewTextBoxColumn,
+            this.subjectNameDataGridViewTextBoxColumn,
             this.subjectMarksDataGridViewTextBoxColumn,
             this.Edit,
             this.Delete});
@@ -176,19 +176,19 @@
             this.studentRollNoDataGridViewTextBoxColumn.Name = "studentRollNoDataGridViewTextBoxColumn";
             this.studentRollNoDataGridViewTextBoxColumn.Width = 150;
             // 
-            // subjectNameDataGridViewTextBoxColumn
-            // 
-            this.subjectNameDataGridViewTextBoxColumn.DataPropertyName = "subjectName";
-            this.subjectNameDataGridViewTextBoxColumn.HeaderText = "subjectName";
-            this.subjectNameDataGridViewTextBoxColumn.Name = "subjectNameDataGridViewTextBoxColumn";
-            this.subjectNameDataGridViewTextBoxColumn.Width = 150;
-            // 
             // studentNameDataGridViewTextBoxColumn
             // 
             this.studentNameDataGridViewTextBoxColumn.DataPropertyName = "studentName";
             this.studentNameDataGridViewTextBoxColumn.HeaderText = "studentName";
             this.studentNameDataGridViewTextBoxColumn.Name = "studentNameDataGridViewTextBoxColumn";
             this.studentNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // subjectNameDataGridViewTextBoxColumn
+            // 
+            this.subjectNameDataGridViewTextBoxColumn.DataPropertyName = "subjectName";
+            this.subjectNameDataGridViewTextBoxColumn.HeaderText = "subjectName";
+            this.subjectNameDataGridViewTextBoxColumn.Name = "subjectNameDataGridViewTextBoxColumn";
+            this.subjectNameDataGridViewTextBoxColumn.Width = 150;
             // 
             // subjectMarksDataGridViewTextBoxColumn
             // 
@@ -230,6 +230,7 @@
             this.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SearchOption";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SearchOption";
             this.Load += new System.EventHandler(this.SearchOption_Load);
             ((System.ComponentModel.ISupportInitialize)(this.displayGrid)).EndInit();
@@ -255,8 +256,8 @@
         private StudentsRecordDataSetTableAdapters.studentMarksTableAdapter studentMarksTableAdapter;
         private System.Windows.Forms.Button buttonViewAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentRollNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subjectNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subjectNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subjectMarksDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
