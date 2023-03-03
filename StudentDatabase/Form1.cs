@@ -14,9 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace StudentDatabase
 {
-    public partial class StartProcessing : Form
+    public partial class MainMenu : Form
     {
-        public StartProcessing()
+        public MainMenu()
         {
             InitializeComponent();
         }
@@ -124,7 +124,16 @@ namespace StudentDatabase
 
         }
 
-       
+        private void buttonProcess_Click(object sender, EventArgs e)
+        {
+            panelMain.Controls.Clear();
+            
+        }
+
+        private void buttonSearch_Click_1(object sender, EventArgs e)
+        {
+           
+        }
     }
    
 }

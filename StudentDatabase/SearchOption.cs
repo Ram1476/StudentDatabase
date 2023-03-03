@@ -165,11 +165,12 @@ namespace StudentDatabase
                     string subjectName = row.Cells[3].Value.ToString();
                     int subjectMark = Convert.ToInt32(row.Cells[4].Value);
                     EditData editValue = new EditData(studentRollNo, studentName, subjectName, subjectMark);
-                    editValue.Show();
+                    editValue.ShowDialog();
                     isSuccess = true;
                     
                    
                 }
+                LoadData();
             }
             catch(Exception ex) 
             {
@@ -200,11 +201,11 @@ namespace StudentDatabase
 
         private void SearchOp_Activated(object sender, EventArgs e)
         {
-            if (isSuccess) 
-            {
-                LoadData();
-                isSuccess = false;
-            }
+            //if (isSuccess) 
+            //{
+            //    LoadData();
+            //    isSuccess = false;
+            //}
             
         }
     }
