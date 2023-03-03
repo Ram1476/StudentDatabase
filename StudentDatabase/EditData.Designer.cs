@@ -92,6 +92,7 @@
             this.textBoxRollNo.ReadOnly = true;
             this.textBoxRollNo.Size = new System.Drawing.Size(128, 30);
             this.textBoxRollNo.TabIndex = 4;
+            this.textBoxRollNo.TextChanged += new System.EventHandler(this.textBoxRollNo_TextChanged);
             // 
             // textBoxStudentName
             // 

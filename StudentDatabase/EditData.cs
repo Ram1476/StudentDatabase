@@ -22,7 +22,7 @@ namespace StudentDatabase
             
             
         }
-        SqlConnection Con = new SqlConnection("server = DESKTOP-39SGDTH\\SQLEXPRESS; Database = studentsRecord; integrated Security = true");
+        SqlConnection Con = new SqlConnection("server =  NLTI151\\SQLEXPRESS; Database = studentsRecord; integrated Security = true");
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
@@ -45,6 +45,11 @@ namespace StudentDatabase
             Con.Close();
             Con.Close();
             
+        }
+
+        private void textBoxRollNo_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         public EditData(string rollNo, string sName, string subName, int sMark)

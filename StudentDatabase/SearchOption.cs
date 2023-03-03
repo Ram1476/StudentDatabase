@@ -25,7 +25,7 @@ namespace StudentDatabase
             
         }
         bool isSuccess = false;
-        SqlConnection Con = new SqlConnection("server = DESKTOP-39SGDTH\\SQLEXPRESS; Database = studentsRecord; integrated Security = true");
+        SqlConnection Con = new SqlConnection("server = NLTI151\\SQLEXPRESS; Database = studentsRecord; integrated Security = true");
         private void btnsearch_Click(object sender, EventArgs e)
         {
              
@@ -114,7 +114,7 @@ namespace StudentDatabase
 
         private void displayGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            
             DataGridViewRow row = displayGrid.Rows[e.RowIndex];
             
             try
