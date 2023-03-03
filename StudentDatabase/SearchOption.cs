@@ -20,14 +20,14 @@ namespace StudentDatabase
             InitializeComponent();
             displayGrid.Visible = false;
             displayGrid.AllowUserToDeleteRows = true;
-
+            
+            
+            
         }
+        bool isSuccess = false;
         SqlConnection Con = new SqlConnection("server = DESKTOP-39SGDTH\\SQLEXPRESS; Database = studentsRecord; integrated Security = true");
         private void btnsearch_Click(object sender, EventArgs e)
         {
-            
-            
-           
              
             try 
             {
@@ -52,11 +52,11 @@ namespace StudentDatabase
                     if (displayGrid.RowCount > 0)
                     {
 
-                        MessageBox.Show("Student Detail Displayed SuccessFully ");
+                        MessageBox.Show("Student Detail Displayed SuccessFully","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
                     else 
                     {
-                        MessageBox.Show("No available Data to display based on your search options");
+                        MessageBox.Show("No available Data to display based on your search options","Message",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     }
                 }
                 else 
@@ -71,8 +71,18 @@ namespace StudentDatabase
 
                     displayGrid.Visible = true;
                     displayGrid.AllowUserToAddRows = false;
-                    
-                    
+
+                    if (displayGrid.RowCount > 0)
+                    {
+
+                        MessageBox.Show("Student Detail Displayed SuccessFully","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No available Data to display based on your search options", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
 
                 }
 
@@ -85,6 +95,7 @@ namespace StudentDatabase
 
         private void SearchOption_Load(object sender, EventArgs e)
         {
+            
             // TODO: This line of code loads data into the 'studentsRecordDataSet.studentMarks' table. You can move, or remove it, as needed.
             this.studentMarksTableAdapter.Fill(this.studentsRecordDataSet.studentMarks);
 
@@ -104,34 +115,68 @@ namespace StudentDatabase
         private void displayGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            DataGridViewRow row = displayGrid.Rows[e.RowIndex];
             
-            if (displayGrid.Columns[e.ColumnIndex].Name == "Delete") 
+            try
             {
-                DataGridViewRow row = displayGrid.Rows[e.RowIndex];
-                try
+                if (displayGrid.Columns[e.ColumnIndex].Name == "Delete")
                 {
 
-                    if (MessageBox.Show($"Are you sure , You Want to delete this record {row.Cells[0].Value} ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    try
                     {
-                        SqlCommand cmd = new SqlCommand("Delete from studentMarks where StudentRollNo = @RollNo and SubjectName = @SubName",Con);
-                        cmd.Parameters.AddWithValue("@RollNo", row.Cells[0].Value);
-                        cmd.Parameters.AddWithValue("@SubName", row.Cells[1].Value);
-                        Con.Open();
-                        cmd.ExecuteNonQuery();
-                        Con.Close();
+
+                        if (MessageBox.Show($"Are you sure , You Want to delete this record {row.Cells[1].Value} ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        {
+                            SqlCommand cmd = new SqlCommand($"Delete from studentMarks where StudentRollNo = '{row.Cells[1].Value}'  and SubjectName = '{row.Cells[3].Value}'", Con);
+
+                            Con.Open();
+
+                            int result = cmd.ExecuteNonQuery();
+                            if (result > 0)
+                            {
+                                MessageBox.Show($"StudentID: {row.Cells[1].Value} SubjectName:{row.Cells[3].Value},Successfully Deleted","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                
+
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Error Deleting\nStudentID: {row.Cells[0].Value}\nSubjectName:{row.Cells[2].Value}\nNot Deleted", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            Con.Close();
+                            Con.Close();
+                            
+
+                        }
+
                     }
-                    else 
+                    catch (Exception ex)
                     {
-                        
+
+                        MessageBox.Show($"Error Processing the Required Function\n\n{ex.Message}","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
+                    isSuccess= true;
                 }
-                catch (Exception ex)
+                else
                 {
 
-                    MessageBox.Show("Error Processing the Required Function" + Environment.NewLine+ ex.Message );
+
+                    string studentRollNo = (row.Cells[1].Value.ToString());
+                    string studentName = row.Cells[2].Value.ToString();
+                    string subjectName = row.Cells[3].Value.ToString();
+                    int subjectMark = Convert.ToInt32(row.Cells[4].Value);
+                    EditData editValue = new EditData(studentRollNo, studentName, subjectName, subjectMark);
+                    editValue.Show();
+                    isSuccess = true;
+                    
+                   
                 }
             }
-            LoadData();
+            catch(Exception ex) 
+            {
+                MessageBox.Show($"Error Editing / Deleting your Data \n{ex.Message}","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+          
+            
         }
 
         private void buttonViewAll_Click(object sender, EventArgs e)
@@ -151,6 +196,16 @@ namespace StudentDatabase
             displayGrid.Visible = true;
 
             displayGrid.AllowUserToAddRows = false;
+        }
+
+        private void SearchOp_Activated(object sender, EventArgs e)
+        {
+            if (isSuccess) 
+            {
+                LoadData();
+                isSuccess = false;
+            }
+            
         }
     }
 }

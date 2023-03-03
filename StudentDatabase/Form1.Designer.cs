@@ -36,10 +36,9 @@
             // 
             this.btnStart.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnStart.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(234, 246);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStart.Location = new System.Drawing.Point(135, 200);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(218, 57);
+            this.btnStart.Size = new System.Drawing.Size(224, 46);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start Processing....";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -49,10 +48,9 @@
             // 
             this.btnSearch.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnSearch.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(590, 246);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Location = new System.Drawing.Point(442, 200);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(218, 57);
+            this.btnSearch.Size = new System.Drawing.Size(221, 46);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search Screen";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -60,17 +58,16 @@
             // 
             // StartProcessing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnStart);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StartProcessing";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Assessment";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }

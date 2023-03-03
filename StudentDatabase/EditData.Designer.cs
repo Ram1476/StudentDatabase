@@ -33,10 +33,11 @@
             this.LabelSubjectName = new System.Windows.Forms.Label();
             this.labelSubjectMark = new System.Windows.Forms.Label();
             this.textBoxRollNo = new System.Windows.Forms.TextBox();
-            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxStudentName = new System.Windows.Forms.TextBox();
             this.textBoxSubName = new System.Windows.Forms.TextBox();
             this.textBoxSubMark = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelStudentRollNo
@@ -92,14 +93,14 @@
             this.textBoxRollNo.Size = new System.Drawing.Size(128, 30);
             this.textBoxRollNo.TabIndex = 4;
             // 
-            // textBoxName
+            // textBoxStudentName
             // 
-            this.textBoxName.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxName.Location = new System.Drawing.Point(184, 84);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.ReadOnly = true;
-            this.textBoxName.Size = new System.Drawing.Size(128, 30);
-            this.textBoxName.TabIndex = 5;
+            this.textBoxStudentName.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxStudentName.Location = new System.Drawing.Point(184, 84);
+            this.textBoxStudentName.Name = "textBoxStudentName";
+            this.textBoxStudentName.ReadOnly = true;
+            this.textBoxStudentName.Size = new System.Drawing.Size(128, 30);
+            this.textBoxStudentName.TabIndex = 5;
             // 
             // textBoxSubName
             // 
@@ -120,22 +121,34 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(184, 276);
+            this.buttonSave.Location = new System.Drawing.Point(58, 282);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(90, 33);
             this.buttonSave.TabIndex = 8;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Location = new System.Drawing.Point(195, 282);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(90, 33);
+            this.buttonClose.TabIndex = 9;
+            this.buttonClose.Text = "Close";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // EditData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 344);
+            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxSubMark);
             this.Controls.Add(this.textBoxSubName);
-            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.textBoxStudentName);
             this.Controls.Add(this.textBoxRollNo);
             this.Controls.Add(this.labelSubjectMark);
             this.Controls.Add(this.LabelSubjectName);
@@ -144,8 +157,9 @@
             this.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "EditData";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditData";
+            this.Load += new System.EventHandler(this.EditData_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,9 +172,10 @@
         private System.Windows.Forms.Label LabelSubjectName;
         private System.Windows.Forms.Label labelSubjectMark;
         private System.Windows.Forms.TextBox textBoxRollNo;
-        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxStudentName;
         private System.Windows.Forms.TextBox textBoxSubName;
         private System.Windows.Forms.TextBox textBoxSubMark;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonClose;
     }
 }

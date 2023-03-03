@@ -82,19 +82,19 @@ namespace StudentDatabase
                         }
 
                         File.Move("D:\\Assessment\\Unprocessed\\StudentMarks.csv", "D:\\Assessment\\Processed\\StudentMarks.csv");
-                        MessageBox.Show($"Successfully Processed the CSV File\nTotal No.of Rows in the File:{count}");
-                        MessageBox.Show($"Student Data Uploaded to  SQL Server\nNo.of Student Record Processed : {groupResult.Count()} ");
+                        MessageBox.Show($"Successfully Processed the CSV File\n\nTotal No.of Rows in the File:{count}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Student Data Uploaded to  SQL Server\n\nNo.of Student Record Processed : {groupResult.Count()}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
                     catch (Exception ex)
                     {
                         File.Move("D:\\Assessment\\Unprocessed\\StudentMarks.csv", "D:\\Assessment\\Error\\StudentMarks.csv");
-                        MessageBox.Show("Error Processing the CSV File : " + Environment.NewLine + ex.Message);
+                        MessageBox.Show($"Error Processing the CSV File : {ex.Message}","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
                 else 
                 {
-                    MessageBox.Show("No CSV file found in the preferred path");
+                    MessageBox.Show("No CSV file found in the preferred path","Failed",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
 
                 }
             
@@ -108,6 +108,23 @@ namespace StudentDatabase
             SearchOption s1 = new SearchOption();
             s1.Show();
         }
+
+        private void buttonsearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+       
     }
    
 }

@@ -16,7 +16,7 @@ namespace StudentDatabase
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StartProcessing());
+            Application.Run(new MenuForm());
            
         }
         
