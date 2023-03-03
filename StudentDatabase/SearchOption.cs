@@ -122,7 +122,7 @@ namespace StudentDatabase
                 if (displayGrid.Columns[e.ColumnIndex].Name == "Delete")
                 {
 
-                    try
+                    try  
                     {
 
                         if (MessageBox.Show($"Are you sure , You Want to delete this record {row.Cells[1].Value} ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
