@@ -87,7 +87,7 @@ namespace StudentDatabase
 
         private void MenuButton_Click(object sender, EventArgs e)
         {
-            //SideTimer.Start();
+            SideTimer.Start();
         }
     }
 }
