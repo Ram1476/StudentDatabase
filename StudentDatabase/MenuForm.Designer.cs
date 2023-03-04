@@ -30,23 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanelLeft = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LabelMenu = new System.Windows.Forms.Label();
-            this.panelMain = new System.Windows.Forms.Panel();
-            this.SideTimer = new System.Windows.Forms.Timer(this.components);
-            this.buttonExit = new System.Windows.Forms.Button();
-            this.buttonProcess = new System.Windows.Forms.Button();
             this.MenuButton = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.buttonProcess = new System.Windows.Forms.Button();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.SideTimer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanelLeft.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuButton)).BeginInit();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelLeft
@@ -75,6 +75,31 @@
             this.tableLayoutPanelLeft.Size = new System.Drawing.Size(167, 900);
             this.tableLayoutPanelLeft.TabIndex = 3;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.buttonExit);
+            this.panel4.Location = new System.Drawing.Point(3, 273);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(161, 51);
+            this.panel4.TabIndex = 6;
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonExit.FlatAppearance.BorderSize = 0;
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExit.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExit.Image = global::StudentDatabase.Properties.Resources.power_off;
+            this.buttonExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonExit.Location = new System.Drawing.Point(0, 0);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(161, 43);
+            this.buttonExit.TabIndex = 3;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.LabelMenu);
@@ -97,54 +122,6 @@
             this.LabelMenu.TabIndex = 3;
             this.LabelMenu.Text = "Menu";
             // 
-            // panelMain
-            // 
-            this.panelMain.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(167, 0);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(900, 554);
-            this.panelMain.TabIndex = 4;
-            // 
-            // SideTimer
-            // 
-            this.SideTimer.Interval = 10;
-            this.SideTimer.Tick += new System.EventHandler(this.tableLayoutPanelLeft_tick);
-            // 
-            // buttonExit
-            // 
-            this.buttonExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonExit.FlatAppearance.BorderSize = 0;
-            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.Image = global::StudentDatabase.Properties.Resources.power_off;
-            this.buttonExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExit.Location = new System.Drawing.Point(0, 0);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(161, 43);
-            this.buttonExit.TabIndex = 3;
-            this.buttonExit.Text = "Exit";
-            this.buttonExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonExit.UseVisualStyleBackColor = true;
-            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
-            // 
-            // buttonProcess
-            // 
-            this.buttonProcess.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonProcess.FlatAppearance.BorderSize = 0;
-            this.buttonProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonProcess.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonProcess.Image = global::StudentDatabase.Properties.Resources.automated_process;
-            this.buttonProcess.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonProcess.Location = new System.Drawing.Point(0, 0);
-            this.buttonProcess.Name = "buttonProcess";
-            this.buttonProcess.Size = new System.Drawing.Size(161, 43);
-            this.buttonProcess.TabIndex = 2;
-            this.buttonProcess.Text = "Process";
-            this.buttonProcess.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonProcess.UseVisualStyleBackColor = true;
-            this.buttonProcess.Click += new System.EventHandler(this.buttonProcess_Click);
-            // 
             // MenuButton
             // 
             this.MenuButton.Image = global::StudentDatabase.Properties.Resources.list;
@@ -155,6 +132,14 @@
             this.MenuButton.TabIndex = 0;
             this.MenuButton.TabStop = false;
             this.MenuButton.Click += new System.EventHandler(this.MenuButton_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.buttonSearch);
+            this.panel3.Location = new System.Drawing.Point(3, 183);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(161, 51);
+            this.panel3.TabIndex = 5;
             // 
             // buttonSearch
             // 
@@ -181,21 +166,36 @@
             this.panel2.Size = new System.Drawing.Size(161, 51);
             this.panel2.TabIndex = 4;
             // 
-            // panel3
+            // buttonProcess
             // 
-            this.panel3.Controls.Add(this.buttonSearch);
-            this.panel3.Location = new System.Drawing.Point(3, 183);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(161, 51);
-            this.panel3.TabIndex = 5;
+            this.buttonProcess.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonProcess.FlatAppearance.BorderSize = 0;
+            this.buttonProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProcess.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonProcess.Image = global::StudentDatabase.Properties.Resources.automated_process;
+            this.buttonProcess.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonProcess.Location = new System.Drawing.Point(0, 0);
+            this.buttonProcess.Name = "buttonProcess";
+            this.buttonProcess.Size = new System.Drawing.Size(161, 43);
+            this.buttonProcess.TabIndex = 2;
+            this.buttonProcess.Text = "Process";
+            this.buttonProcess.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonProcess.UseVisualStyleBackColor = true;
+            this.buttonProcess.Click += new System.EventHandler(this.buttonProcess_Click);
             // 
-            // panel4
+            // panelMain
             // 
-            this.panel4.Controls.Add(this.buttonExit);
-            this.panel4.Location = new System.Drawing.Point(3, 273);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(161, 51);
-            this.panel4.TabIndex = 6;
+            this.panelMain.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(167, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(900, 554);
+            this.panelMain.TabIndex = 4;
+            // 
+            // SideTimer
+            // 
+            this.SideTimer.Interval = 10;
+            this.SideTimer.Tick += new System.EventHandler(this.tableLayoutPanelLeft_tick);
             // 
             // MenuForm
             // 
@@ -215,12 +215,12 @@
             this.TransparencyKey = System.Drawing.Color.Transparent;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanelLeft.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuButton)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
