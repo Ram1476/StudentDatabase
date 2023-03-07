@@ -37,6 +37,9 @@
             this.txtStRollNo = new System.Windows.Forms.TextBox();
             this.txtSubName = new System.Windows.Forms.TextBox();
             this.displayGrid = new System.Windows.Forms.DataGridView();
+            this.studentMarksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentsRecordDataSet = new StudentDatabase.StudentsRecordDataSet();
+            this.studentMarksTableAdapter = new StudentDatabase.StudentsRecordDataSetTableAdapters.studentMarksTableAdapter();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentRollNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,9 +47,6 @@
             this.subjectMarksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.studentMarksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentsRecordDataSet = new StudentDatabase.studentsRecordDataSet();
-            this.studentMarksTableAdapter = new StudentDatabase.studentsRecordDataSetTableAdapters.studentMarksTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.displayGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentMarksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsRecordDataSet)).BeginInit();
@@ -145,11 +145,25 @@
             this.Edit,
             this.Delete});
             this.displayGrid.DataSource = this.studentMarksBindingSource;
-            this.displayGrid.Location = new System.Drawing.Point(12, 432);
+            this.displayGrid.Location = new System.Drawing.Point(3, 375);
             this.displayGrid.Name = "displayGrid";
-            this.displayGrid.Size = new System.Drawing.Size(1441, 330);
+            this.displayGrid.Size = new System.Drawing.Size(1368, 330);
             this.displayGrid.TabIndex = 7;
             this.displayGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.displayGrid_CellContentClick);
+            // 
+            // studentMarksBindingSource
+            // 
+            this.studentMarksBindingSource.DataMember = "studentMarks";
+            this.studentMarksBindingSource.DataSource = this.studentsRecordDataSet;
+            // 
+            // studentsRecordDataSet
+            // 
+            this.studentsRecordDataSet.DataSetName = "StudentsRecordDataSet";
+            this.studentsRecordDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentMarksTableAdapter
+            // 
+            this.studentMarksTableAdapter.ClearBeforeFill = true;
             // 
             // Column1
             // 
@@ -204,27 +218,13 @@
             this.Delete.UseColumnTextForButtonValue = true;
             this.Delete.Width = 200;
             // 
-            // studentMarksBindingSource
-            // 
-            this.studentMarksBindingSource.DataMember = "studentMarks";
-            this.studentMarksBindingSource.DataSource = this.studentsRecordDataSet;
-            // 
-            // studentsRecordDataSet
-            // 
-            this.studentsRecordDataSet.DataSetName = "studentsRecordDataSet";
-            this.studentsRecordDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentMarksTableAdapter
-            // 
-            this.studentMarksTableAdapter.ClearBeforeFill = true;
-            // 
             // SearchOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1459, 774);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.displayGrid);
             this.Controls.Add(this.txtSubName);
             this.Controls.Add(this.txtStRollNo);
@@ -259,9 +259,9 @@
         private System.Windows.Forms.TextBox txtStRollNo;
         private System.Windows.Forms.TextBox txtSubName;
         private System.Windows.Forms.DataGridView displayGrid;
-        private studentsRecordDataSet studentsRecordDataSet;
+        private StudentsRecordDataSet studentsRecordDataSet;
         private System.Windows.Forms.BindingSource studentMarksBindingSource;
-        private studentsRecordDataSetTableAdapters.studentMarksTableAdapter studentMarksTableAdapter;
+        private StudentsRecordDataSetTableAdapters.studentMarksTableAdapter studentMarksTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentRollNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentNameDataGridViewTextBoxColumn;

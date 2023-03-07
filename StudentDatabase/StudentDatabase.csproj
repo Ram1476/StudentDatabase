@@ -82,6 +82,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>studentsRecordDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="StudentsRecordDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentsRecordDataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EditData.resx">
       <DependentUpon>EditData.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +133,17 @@
     </None>
     <None Include="studentsRecordDataSet.xss">
       <DependentUpon>studentsRecordDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StudentsRecordDataSet1.xsc">
+      <DependentUpon>StudentsRecordDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="StudentsRecordDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudentsRecordDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StudentsRecordDataSet1.xss">
+      <DependentUpon>StudentsRecordDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

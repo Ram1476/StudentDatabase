@@ -98,7 +98,9 @@ namespace StudentDatabase
 
         private void SearchOption_Load(object sender, EventArgs e)
         {
-          
+            // TODO: This line of code loads data into the 'studentsRecordDataSet.studentMarks' table. You can move, or remove it, as needed.
+            this.studentMarksTableAdapter.Fill(this.studentsRecordDataSet.studentMarks);
+
             // TODO: This line of code loads data into the 'studentsRecordDataSet1.studentMarks' table. You can move, or remove it, as needed.
             this.studentMarksTableAdapter.Fill(this.studentsRecordDataSet.studentMarks);
 

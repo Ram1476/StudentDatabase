@@ -39,12 +39,16 @@ namespace StudentDatabase
                         IgnoreUnknownColumns = true,
                         SeparatorChar = ','
                     };
-                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["StudentDBCS"].ConnectionString);
+                    DateTime nowTime = DateTime.Now;
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["StudentDBCS"].ConnectionString);
                     try
                     {
                         var csvContext = new CsvContext();
                         var students = csvContext.Read<Students>("StudentMarks.csv", csvFiledescription);
-                        int count = 1;
+                        int count = 0;
+                        int checkvalue = 0;
+                        
+
                         foreach (var student in students)
                         {
 
@@ -70,9 +74,17 @@ namespace StudentDatabase
                                     dr1.Read();
                                     int id2 = Convert.ToInt32(dr1["ID"]);
                                     dr1.Close();
-                                    SqlCommand da = new SqlCommand($"insert into studentMarks(studentRollno,SubjectID,SubjectName,StudentID,StudentName,SubjectMarks)\r\nvalues('{student.student_RollNo}',{id2},'{student.subject_Name}',{id1},'{student.student_Name}',{student.marks});", con);
+                                    SqlCommand da = new SqlCommand($"insert into studentMarks(studentRollno,SubjectID,SubjectName,StudentID,StudentName,SubjectMarks)\r\n" +
+                                        $"select '{student.student_RollNo}',{id2},'{student.subject_Name}',{id1},'{student.student_Name}',{student.marks}" +
+                                        $"where not exists (Select * from Studentmarks where studentRollno = '{student.student_RollNo}' and SubjectID = {id2} and" +
+                                        $" SubjectName = '{student.subject_Name}' and StudentID = {id1} and StudentName = '{student.student_Name}' and SubjectMarks = {student.marks});", con);
 
-                                    da.ExecuteNonQuery();
+                                    int result = da.ExecuteNonQuery();
+                                    if (result == 1) 
+                                    {
+                                    checkvalue += 1;
+                                    }
+                                
 
                                 
                                     dr1.Close();
@@ -81,11 +93,16 @@ namespace StudentDatabase
 
                             }
                         }
-
-                        File.Move(path, processed);
-                        MessageBox.Show($"Successfully Processed the CSV File\n\nTotal No.of Rows in the File:{count}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MessageBox.Show($"Student Data Uploaded to  SQL Server\n\nNo.of Student Record Processed : {groupResult.Count()}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        if (count == checkvalue)
+                        {
+                            File.Move(path, processed + nowTime.ToString()+".csv");
+                            MessageBox.Show($"Successfully Processed the CSV File\n\nTotal No.of Rows in the File:{count}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"Student Data Uploaded to  SQL Server\n\nNo.of Student Record Processed : {groupResult.Count()}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else 
+                        {
+                            throw new Exception("Data Already Exist in the dataBase");
+                        }
                     }
                     catch (Exception ex)
                     {

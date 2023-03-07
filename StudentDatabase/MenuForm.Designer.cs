@@ -74,6 +74,7 @@
             this.tableLayoutPanelLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanelLeft.Size = new System.Drawing.Size(167, 900);
             this.tableLayoutPanelLeft.TabIndex = 3;
+            this.tableLayoutPanelLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelLeft_Paint);
             // 
             // panel4
             // 

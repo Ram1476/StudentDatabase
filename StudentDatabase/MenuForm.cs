@@ -89,5 +89,10 @@ namespace StudentDatabase
         {
             SideTimer.Start();
         }
+
+        private void tableLayoutPanelLeft_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
