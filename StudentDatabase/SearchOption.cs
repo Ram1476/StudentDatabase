@@ -9,7 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using StudentDatabase.StudentsRecordDataSetTableAdapters;
+using System.Configuration;
+
 
 namespace StudentDatabase
 {
@@ -24,8 +25,10 @@ namespace StudentDatabase
             
             
         }
-        bool isSuccess = false;
-        SqlConnection Con = new SqlConnection("server = NLTI151\\SQLEXPRESS; Database = studentsRecord; integrated Security = true");
+
+        SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["StudentDBCS"].ConnectionString);
+
+        
         private void btnsearch_Click(object sender, EventArgs e)
         {
              
@@ -95,9 +98,11 @@ namespace StudentDatabase
 
         private void SearchOption_Load(object sender, EventArgs e)
         {
-            
-            // TODO: This line of code loads data into the 'studentsRecordDataSet.studentMarks' table. You can move, or remove it, as needed.
+          
+            // TODO: This line of code loads data into the 'studentsRecordDataSet1.studentMarks' table. You can move, or remove it, as needed.
             this.studentMarksTableAdapter.Fill(this.studentsRecordDataSet.studentMarks);
+
+          
 
 
         }
@@ -125,7 +130,7 @@ namespace StudentDatabase
                     try  
                     {
 
-                        if (MessageBox.Show($"Are you sure , You Want to delete this record {row.Cells[1].Value} ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        if (MessageBox.Show($"Are you sure , You Want to delete this record: {row.Cells[1].Value} ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             SqlCommand cmd = new SqlCommand($"Delete from studentMarks where StudentRollNo = '{row.Cells[1].Value}'  and SubjectName = '{row.Cells[3].Value}'", Con);
 
@@ -134,13 +139,13 @@ namespace StudentDatabase
                             int result = cmd.ExecuteNonQuery();
                             if (result > 0)
                             {
-                                MessageBox.Show($"StudentID: {row.Cells[1].Value} SubjectName:{row.Cells[3].Value},Successfully Deleted","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                MessageBox.Show($"StudentID: {row.Cells[1].Value}\n\nSubjectName:{row.Cells[3].Value}\n\nSuccessfully Deleted","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
                                 
 
                             }
                             else
                             {
-                                MessageBox.Show($"Error Deleting\nStudentID: {row.Cells[0].Value}\nSubjectName:{row.Cells[2].Value}\nNot Deleted", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show($"Error Deleting\nStudentID: {row.Cells[0].Value}\n\nSubjectName:{row.Cells[2].Value}\n\nNot Deleted", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
                             Con.Close();
                             Con.Close();
@@ -154,7 +159,7 @@ namespace StudentDatabase
 
                         MessageBox.Show($"Error Processing the Required Function\n\n{ex.Message}","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
-                    isSuccess= true;
+                  
                 }
                 else
                 {
@@ -166,7 +171,7 @@ namespace StudentDatabase
                     int subjectMark = Convert.ToInt32(row.Cells[4].Value);
                     EditData editValue = new EditData(studentRollNo, studentName, subjectName, subjectMark);
                     editValue.ShowDialog();
-                    isSuccess = true;
+                    
                     
                    
                 }
@@ -186,7 +191,7 @@ namespace StudentDatabase
         }
         public void LoadData()
         {
-            SqlDataAdapter cmd = new SqlDataAdapter($"Select id,StudentName,StudentRollNo,SubjectName,SubjectMarks from StudentMarks;", Con);
+            SqlDataAdapter cmd = new SqlDataAdapter($"Select id,StudentName,StudentRollNo,SubjectName,SubjectMarks from StudentMarks Where studentName = '{txtStName.Text}' and (studentRollNo = '{txtStRollNo.Text}' and subjectName = '{txtSubName.Text}');", Con);
 
             DataSet ds = new DataSet();
 
@@ -201,11 +206,6 @@ namespace StudentDatabase
 
         private void SearchOp_Activated(object sender, EventArgs e)
         {
-            //if (isSuccess) 
-            //{
-            //    LoadData();
-            //    isSuccess = false;
-            //}
             
         }
     }

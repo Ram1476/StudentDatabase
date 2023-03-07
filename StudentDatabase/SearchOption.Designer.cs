@@ -45,9 +45,8 @@
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.studentMarksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentsRecordDataSet = new StudentDatabase.StudentsRecordDataSet();
-            this.studentMarksTableAdapter = new StudentDatabase.StudentsRecordDataSetTableAdapters.studentMarksTableAdapter();
-            this.buttonViewAll = new System.Windows.Forms.Button();
+            this.studentsRecordDataSet = new StudentDatabase.studentsRecordDataSet();
+            this.studentMarksTableAdapter = new StudentDatabase.studentsRecordDataSetTableAdapters.studentMarksTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.displayGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentMarksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsRecordDataSet)).BeginInit();
@@ -60,7 +59,7 @@
             this.btnsearch.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnsearch.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsearch.Location = new System.Drawing.Point(118, 338);
+            this.btnsearch.Location = new System.Drawing.Point(731, 305);
             this.btnsearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnsearch.Name = "btnsearch";
             this.btnsearch.Size = new System.Drawing.Size(138, 63);
@@ -72,65 +71,65 @@
             // lblStdName
             // 
             this.lblStdName.AutoSize = true;
-            this.lblStdName.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStdName.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStdName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblStdName.Location = new System.Drawing.Point(16, 77);
+            this.lblStdName.Location = new System.Drawing.Point(504, 77);
             this.lblStdName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStdName.Name = "lblStdName";
-            this.lblStdName.Size = new System.Drawing.Size(150, 26);
+            this.lblStdName.Size = new System.Drawing.Size(201, 35);
             this.lblStdName.TabIndex = 1;
             this.lblStdName.Text = "StudentName : ";
             // 
             // lblstRollNo
             // 
             this.lblstRollNo.AutoSize = true;
-            this.lblstRollNo.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblstRollNo.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblstRollNo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblstRollNo.Location = new System.Drawing.Point(16, 160);
+            this.lblstRollNo.Location = new System.Drawing.Point(504, 137);
             this.lblstRollNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblstRollNo.Name = "lblstRollNo";
-            this.lblstRollNo.Size = new System.Drawing.Size(157, 26);
+            this.lblstRollNo.Size = new System.Drawing.Size(211, 35);
             this.lblstRollNo.TabIndex = 2;
             this.lblstRollNo.Text = "StudentRollNo : ";
             // 
             // lblSubject
             // 
             this.lblSubject.AutoSize = true;
-            this.lblSubject.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubject.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubject.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSubject.Location = new System.Drawing.Point(16, 247);
+            this.lblSubject.Location = new System.Drawing.Point(504, 207);
             this.lblSubject.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSubject.Name = "lblSubject";
-            this.lblSubject.Size = new System.Drawing.Size(150, 26);
+            this.lblSubject.Size = new System.Drawing.Size(199, 35);
             this.lblSubject.TabIndex = 3;
             this.lblSubject.Text = "SubjectName : ";
             // 
             // txtStName
             // 
-            this.txtStName.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStName.Location = new System.Drawing.Point(191, 77);
+            this.txtStName.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStName.Location = new System.Drawing.Point(731, 77);
             this.txtStName.Margin = new System.Windows.Forms.Padding(4);
             this.txtStName.Name = "txtStName";
-            this.txtStName.Size = new System.Drawing.Size(198, 30);
+            this.txtStName.Size = new System.Drawing.Size(198, 34);
             this.txtStName.TabIndex = 4;
             // 
             // txtStRollNo
             // 
-            this.txtStRollNo.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStRollNo.Location = new System.Drawing.Point(191, 156);
+            this.txtStRollNo.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStRollNo.Location = new System.Drawing.Point(731, 137);
             this.txtStRollNo.Margin = new System.Windows.Forms.Padding(4);
             this.txtStRollNo.Name = "txtStRollNo";
-            this.txtStRollNo.Size = new System.Drawing.Size(198, 30);
+            this.txtStRollNo.Size = new System.Drawing.Size(198, 34);
             this.txtStRollNo.TabIndex = 5;
             this.txtStRollNo.TextChanged += new System.EventHandler(this.txtStRollNo_TextChanged);
             // 
             // txtSubName
             // 
-            this.txtSubName.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubName.Location = new System.Drawing.Point(191, 243);
+            this.txtSubName.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubName.Location = new System.Drawing.Point(731, 207);
             this.txtSubName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubName.Name = "txtSubName";
-            this.txtSubName.Size = new System.Drawing.Size(198, 30);
+            this.txtSubName.Size = new System.Drawing.Size(198, 34);
             this.txtSubName.TabIndex = 6;
             // 
             // displayGrid
@@ -148,7 +147,7 @@
             this.displayGrid.DataSource = this.studentMarksBindingSource;
             this.displayGrid.Location = new System.Drawing.Point(12, 432);
             this.displayGrid.Name = "displayGrid";
-            this.displayGrid.Size = new System.Drawing.Size(942, 296);
+            this.displayGrid.Size = new System.Drawing.Size(1441, 330);
             this.displayGrid.TabIndex = 7;
             this.displayGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.displayGrid_CellContentClick);
             // 
@@ -158,37 +157,35 @@
             this.Column1.HeaderText = "ID";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 200;
             // 
             // studentRollNoDataGridViewTextBoxColumn
             // 
             this.studentRollNoDataGridViewTextBoxColumn.DataPropertyName = "StudentRollNo";
             this.studentRollNoDataGridViewTextBoxColumn.HeaderText = "StudentRollNo";
             this.studentRollNoDataGridViewTextBoxColumn.Name = "studentRollNoDataGridViewTextBoxColumn";
-            this.studentRollNoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.studentRollNoDataGridViewTextBoxColumn.Width = 150;
+            this.studentRollNoDataGridViewTextBoxColumn.Width = 200;
             // 
             // studentNameDataGridViewTextBoxColumn
             // 
             this.studentNameDataGridViewTextBoxColumn.DataPropertyName = "studentName";
             this.studentNameDataGridViewTextBoxColumn.HeaderText = "studentName";
             this.studentNameDataGridViewTextBoxColumn.Name = "studentNameDataGridViewTextBoxColumn";
-            this.studentNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.studentNameDataGridViewTextBoxColumn.Width = 150;
+            this.studentNameDataGridViewTextBoxColumn.Width = 200;
             // 
             // subjectNameDataGridViewTextBoxColumn
             // 
             this.subjectNameDataGridViewTextBoxColumn.DataPropertyName = "subjectName";
             this.subjectNameDataGridViewTextBoxColumn.HeaderText = "subjectName";
             this.subjectNameDataGridViewTextBoxColumn.Name = "subjectNameDataGridViewTextBoxColumn";
-            this.subjectNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subjectNameDataGridViewTextBoxColumn.Width = 150;
+            this.subjectNameDataGridViewTextBoxColumn.Width = 200;
             // 
             // subjectMarksDataGridViewTextBoxColumn
             // 
             this.subjectMarksDataGridViewTextBoxColumn.DataPropertyName = "SubjectMarks";
             this.subjectMarksDataGridViewTextBoxColumn.HeaderText = "SubjectMarks";
             this.subjectMarksDataGridViewTextBoxColumn.Name = "subjectMarksDataGridViewTextBoxColumn";
-            this.subjectMarksDataGridViewTextBoxColumn.Width = 150;
+            this.subjectMarksDataGridViewTextBoxColumn.Width = 200;
             // 
             // Edit
             // 
@@ -196,6 +193,7 @@
             this.Edit.Name = "Edit";
             this.Edit.Text = "Edit";
             this.Edit.UseColumnTextForButtonValue = true;
+            this.Edit.Width = 200;
             // 
             // Delete
             // 
@@ -204,6 +202,7 @@
             this.Delete.ReadOnly = true;
             this.Delete.Text = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 200;
             // 
             // studentMarksBindingSource
             // 
@@ -212,36 +211,20 @@
             // 
             // studentsRecordDataSet
             // 
-            this.studentsRecordDataSet.DataSetName = "StudentsRecordDataSet";
+            this.studentsRecordDataSet.DataSetName = "studentsRecordDataSet";
             this.studentsRecordDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // studentMarksTableAdapter
             // 
             this.studentMarksTableAdapter.ClearBeforeFill = true;
             // 
-            // buttonViewAll
-            // 
-            this.buttonViewAll.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonViewAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonViewAll.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonViewAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonViewAll.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonViewAll.Location = new System.Drawing.Point(389, 338);
-            this.buttonViewAll.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonViewAll.Name = "buttonViewAll";
-            this.buttonViewAll.Size = new System.Drawing.Size(138, 63);
-            this.buttonViewAll.TabIndex = 8;
-            this.buttonViewAll.Text = "ViewAll";
-            this.buttonViewAll.UseVisualStyleBackColor = false;
-            this.buttonViewAll.Click += new System.EventHandler(this.buttonViewAll_Click);
-            // 
             // SearchOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(985, 774);
-            this.Controls.Add(this.buttonViewAll);
+            this.ClientSize = new System.Drawing.Size(1459, 774);
             this.Controls.Add(this.displayGrid);
             this.Controls.Add(this.txtSubName);
             this.Controls.Add(this.txtStRollNo);
@@ -256,7 +239,6 @@
             this.Name = "SearchOption";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SearchOption";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.SearchOp_Activated);
             this.Load += new System.EventHandler(this.SearchOption_Load);
             ((System.ComponentModel.ISupportInitialize)(this.displayGrid)).EndInit();
@@ -277,10 +259,9 @@
         private System.Windows.Forms.TextBox txtStRollNo;
         private System.Windows.Forms.TextBox txtSubName;
         private System.Windows.Forms.DataGridView displayGrid;
-        private StudentsRecordDataSet studentsRecordDataSet;
+        private studentsRecordDataSet studentsRecordDataSet;
         private System.Windows.Forms.BindingSource studentMarksBindingSource;
-        private StudentsRecordDataSetTableAdapters.studentMarksTableAdapter studentMarksTableAdapter;
-        private System.Windows.Forms.Button buttonViewAll;
+        private studentsRecordDataSetTableAdapters.studentMarksTableAdapter studentMarksTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentRollNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentNameDataGridViewTextBoxColumn;

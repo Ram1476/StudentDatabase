@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace StudentDatabase
@@ -23,7 +24,9 @@ namespace StudentDatabase
         Studentdetails adding = new Studentdetails();
         private void btnStart_Click(object sender, EventArgs e)
         {
-            string path = "D:\\Assessment\\Unprocessed\\StudentMarks.csv";
+            string path = ConfigurationManager.AppSettings["StudentData.CSV"];
+            string processed = ConfigurationManager.AppSettings["Processed.CSV"];
+            string error = ConfigurationManager.AppSettings["Error.CSV"];
             
     
 
@@ -36,7 +39,7 @@ namespace StudentDatabase
                         IgnoreUnknownColumns = true,
                         SeparatorChar = ','
                     };
-                    SqlConnection con = new SqlConnection("server = DESKTOP-39SGDTH\\SQLEXPRESS; database = studentsRecord;integrated Security = true");
+                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["StudentDBCS"].ConnectionString);
                     try
                     {
                         var csvContext = new CsvContext();
@@ -44,8 +47,6 @@ namespace StudentDatabase
                         int count = 1;
                         foreach (var student in students)
                         {
-
-                        
 
                             count++;
                         }
@@ -73,7 +74,7 @@ namespace StudentDatabase
 
                                     da.ExecuteNonQuery();
 
-
+                                
                                     dr1.Close();
                                 }
                                 con.Close();
@@ -81,14 +82,14 @@ namespace StudentDatabase
                             }
                         }
 
-                        File.Move("D:\\Assessment\\Unprocessed\\StudentMarks.csv", "D:\\Assessment\\Processed\\StudentMarks.csv");
+                        File.Move(path, processed);
                         MessageBox.Show($"Successfully Processed the CSV File\n\nTotal No.of Rows in the File:{count}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MessageBox.Show($"Student Data Uploaded to  SQL Server\n\nNo.of Student Record Processed : {groupResult.Count()}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
                     catch (Exception ex)
                     {
-                        File.Move("D:\\Assessment\\Unprocessed\\StudentMarks.csv", "D:\\Assessment\\Error\\StudentMarks.csv");
+                        File.Move(path, error);
                         MessageBox.Show($"Error Processing the CSV File : {ex.Message}","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }

@@ -37,6 +37,7 @@
       <HintPath>..\packages\LINQtoCSV.1.5.0.0\lib\net35\LINQtoCSV.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -76,10 +77,10 @@
       <DependentUpon>SearchOption.cs</DependentUpon>
     </Compile>
     <Compile Include="Students.cs" />
-    <Compile Include="StudentsRecordDataSet.Designer.cs">
+    <Compile Include="studentsRecordDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StudentsRecordDataSet.xsd</DependentUpon>
+      <DependentUpon>studentsRecordDataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="EditData.resx">
       <DependentUpon>EditData.cs</DependentUpon>
@@ -103,6 +104,9 @@
     <EmbeddedResource Include="SearchOption.resx">
       <DependentUpon>SearchOption.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -114,16 +118,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="StudentMarks.csv" />
-    <None Include="StudentsRecordDataSet.xsc">
-      <DependentUpon>StudentsRecordDataSet.xsd</DependentUpon>
+    <None Include="studentsRecordDataSet.xsc">
+      <DependentUpon>studentsRecordDataSet.xsd</DependentUpon>
     </None>
-    <None Include="StudentsRecordDataSet.xsd">
+    <None Include="studentsRecordDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StudentsRecordDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>studentsRecordDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="StudentsRecordDataSet.xss">
-      <DependentUpon>StudentsRecordDataSet.xsd</DependentUpon>
+    <None Include="studentsRecordDataSet.xss">
+      <DependentUpon>studentsRecordDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -33,5 +33,16 @@ namespace StudentDatabase.Properties {
                 return ((string)(this["StudentsRecordConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NLTI151\\SQLEXPRESS;Initial Catalog=studentsRecord;Integrated Security" +
+            "=True")]
+        public string studentsRecordConnectionString1 {
+            get {
+                return ((string)(this["studentsRecordConnectionString1"]));
+            }
+        }
     }
 }
