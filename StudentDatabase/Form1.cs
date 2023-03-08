@@ -21,16 +21,19 @@ namespace StudentDatabase
         {
             InitializeComponent();
         }
-        Studentdetails adding = new Studentdetails();
+        Studentdetails Adding = new Studentdetails();
+        DateTime NowTime = DateTime.Now;
         private void btnStart_Click(object sender, EventArgs e)
         {
             string path = ConfigurationManager.AppSettings["StudentData.CSV"];
             string processed = ConfigurationManager.AppSettings["Processed.CSV"];
             string error = ConfigurationManager.AppSettings["Error.CSV"];
-            
-    
 
-                if (File.Exists(path))
+            
+            string FilePath = Path.GetFileNameWithoutExtension(path) + $"({NowTime.ToString("h-mm-tt")}).csv";
+            //System.IO.File.AppendAllText(@"C:\Users\Admin\Desktop\Ram\Assessment\Error\StudentMarks.csv", Environment.NewLine + "Duration: " + Path.GetFileNameWithoutExtension(path) + Environment.NewLine);
+
+            if (File.Exists(path))
                 {
 
                     var csvFiledescription = new CsvFileDescription
@@ -39,7 +42,7 @@ namespace StudentDatabase
                         IgnoreUnknownColumns = true,
                         SeparatorChar = ','
                     };
-                    DateTime nowTime = DateTime.Now;
+                   
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["StudentDBCS"].ConnectionString);
                     try
                     {
@@ -95,7 +98,8 @@ namespace StudentDatabase
                         }
                         if (count == checkvalue)
                         {
-                            File.Move(path, processed + nowTime.ToString()+".csv");
+                            string destination = processed + FilePath;
+                            File.Move(path,destination);
                             MessageBox.Show($"Successfully Processed the CSV File\n\nTotal No.of Rows in the File:{count}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             MessageBox.Show($"Student Data Uploaded to  SQL Server\n\nNo.of Student Record Processed : {groupResult.Count()}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -106,7 +110,8 @@ namespace StudentDatabase
                     }
                     catch (Exception ex)
                     {
-                        File.Move(path, error);
+                        string destination = error + FilePath  ;
+                        File.Move(path, destination);
                         MessageBox.Show($"Error Processing the CSV File : {ex.Message}","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
