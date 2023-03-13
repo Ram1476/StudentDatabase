@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+using System.Security.Cryptography.X509Certificates;
 
 namespace StudentDatabase
 {
@@ -37,7 +38,7 @@ namespace StudentDatabase
             
             string FilePath = Path.GetFileNameWithoutExtension(path) + $"({NowTime.ToString("h-mm-tt")}).csv";
             //System.IO.File.AppendAllText(@"C:\Users\Admin\Desktop\Ram\Assessment\Error\StudentMarks.csv", Environment.NewLine + "Duration: " + Path.GetFileNameWithoutExtension(path) + Environment.NewLine);
-
+            int result;
             if (File.Exists(path))
                 {
 
@@ -55,8 +56,8 @@ namespace StudentDatabase
                         var students = csvContext.Read<Students>("StudentMarks.csv", csvFiledescription);
                         
                         int checkvalue = 0;
-                        
 
+                        var Rechecking = new List<string> ();
                         foreach (var student in students)
                         {
 
@@ -87,10 +88,14 @@ namespace StudentDatabase
                                         $"where not exists (Select * from Studentmarks where studentRollno = '{student.student_RollNo}' and SubjectID = {id2} and" +
                                         $" SubjectName = '{student.subject_Name}' and StudentID = {id1} and StudentName = '{student.student_Name}' and SubjectMarks = {student.marks});", con);
 
-                                    int result = da.ExecuteNonQuery();
+                                    result = da.ExecuteNonQuery();
                                     if (result == 1) 
                                     {
-                                    checkvalue += 1;
+                                        checkvalue += 1;
+                                        if (!(Rechecking.Contains(student.student_RollNo)))
+                                            {
+                                            Rechecking.Add(student.student_RollNo);
+                                            }
                                     }
                                 
 
@@ -110,7 +115,21 @@ namespace StudentDatabase
                         }
                         else 
                         {
-                            throw new Exception("Data Already Exist in the dataBase");
+                            if (checkvalue == 0) 
+                            {
+                                throw new Exception("Data Already Exist in the dataBase");
+                            }
+                            else 
+                            {
+                                int valueNew = Rechecking.Count();
+                                string destination = processed + FilePath;
+                                MessageBox.Show($"Successfully Processed the CSV File\n\nTotal No.of Rows in the File:{count}\n\n Total Rows Processed {checkvalue}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show($"Student Data Uploaded to  SQL Server\n\nNo.of Student Record Processed : {valueNew}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                File.Move(path, destination);
+
+                        }
+
+                            
                         }
                         Transfer = count;
                     }
