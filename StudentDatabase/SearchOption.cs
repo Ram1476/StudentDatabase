@@ -24,7 +24,8 @@ namespace StudentDatabase
 
             ScrollValue = 0;
            
-            
+            buttonNext.Visible = false;
+            buttonPrevious.Visible = false;
 
         }
 
@@ -127,7 +128,11 @@ namespace StudentDatabase
         {
             
             DataGridViewRow row = displayGrid.Rows[e.RowIndex];
-            
+            string studentRollNo = (row.Cells[1].Value.ToString());
+            string studentName = row.Cells[2].Value.ToString();
+            string subjectName = row.Cells[3].Value.ToString();
+            int subjectMark = Convert.ToInt32(row.Cells[4].Value);
+
             try
             {
                 if (displayGrid.Columns[e.ColumnIndex].Name == "Delete")
@@ -171,17 +176,14 @@ namespace StudentDatabase
                 {
 
 
-                    string studentRollNo = (row.Cells[1].Value.ToString());
-                    string studentName = row.Cells[2].Value.ToString();
-                    string subjectName = row.Cells[3].Value.ToString();
-                    int subjectMark = Convert.ToInt32(row.Cells[4].Value);
+                   
                     EditData editValue = new EditData(studentRollNo, studentName, subjectName, subjectMark);
                     editValue.ShowDialog();
                     
                     
                    
                 }
-                LoadData();
+                LoadData(studentName, studentRollNo, subjectName);
             }
             catch(Exception ex) 
             {
@@ -191,13 +193,10 @@ namespace StudentDatabase
             
         }
 
-        private void buttonViewAll_Click(object sender, EventArgs e)
+      
+        public void LoadData(string StudentName,string StudentRollNo,string subjectName)
         {
-            LoadData();
-        }
-        public void LoadData()
-        {
-            SqlDataAdapter cmd = new SqlDataAdapter($"Select id,StudentName,StudentRollNo,SubjectName,SubjectMarks from StudentMarks Where studentName = '{txtStName.Text}' and (studentRollNo = '{txtStRollNo.Text}' and subjectName = '{txtSubName.Text}');", Con);
+            SqlDataAdapter cmd = new SqlDataAdapter($"Select id,StudentName,StudentRollNo,SubjectName,SubjectMarks from StudentMarks Where studentName = '{StudentName}' and (studentRollNo = '{StudentRollNo}' and subjectName = '{subjectName}');", Con);
 
             DataSet ds = new DataSet();
 
@@ -229,16 +228,19 @@ namespace StudentDatabase
             
 
             DataSet ds = new DataSet();
-            
-            
+
+            ScrollValue += 5;
+
             if (ScrollValue <= 0) 
             {
-                ScrollValue = 0;    
+                ScrollValue = 0;  
+                
             }
 
             if (ScrollValue >= count) 
             {
-                ScrollValue = count - 5; 
+                ScrollValue = ScrollValue - 5;
+                MessageBox.Show("You have Reached the Maximum Limit ", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
             ds.Clear();
@@ -252,7 +254,7 @@ namespace StudentDatabase
 
             displayGrid.AllowUserToAddRows = false;
 
-            ScrollValue += 5 ;
+            
 
             
 
@@ -269,14 +271,14 @@ namespace StudentDatabase
 
             DataSet ds = new DataSet();
 
-            
+            ScrollValue -= 5;
             if (ScrollValue >  count)
             {
                 ScrollValue = count-5;
             }
             else if (ScrollValue == count) 
             {
-                ScrollValue = 10;
+                ScrollValue = ScrollValue - 5;
             }
             ds.Clear();
             if (ScrollValue >= 0)
@@ -287,14 +289,41 @@ namespace StudentDatabase
             {
                 ScrollValue = 0;
                 cmd.Fill(ds, ScrollValue, 5, "StudentMarks");
+                MessageBox.Show("You have Reached the minimum Limit", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
+           
+           
             displayGrid.DataSource = ds.Tables["studentMarks"].DefaultView;
 
             displayGrid.Visible = true;
 
             displayGrid.AllowUserToAddRows = false;
-            ScrollValue -= 5 ;
+            
 
         }
+
+        private void buttonViewAll_Click_1(object sender, EventArgs e)
+        {
+            buttonNext.Visible = true;
+            buttonPrevious.Visible = true;
+            SqlCommand cmc = new SqlCommand("Select count (*)  From StudentMarks", Con);
+            Con.Open();
+            int count = (int)cmc.ExecuteScalar();
+            Con.Close();
+
+            SqlDataAdapter cmd = new SqlDataAdapter($"Select id,StudentName,StudentRollNo,SubjectName,SubjectMarks from StudentMarks;", Con);
+
+            DataSet ds = new DataSet();
+
+            cmd.Fill(ds, ScrollValue, 5, "StudentMarks");
+
+            displayGrid.DataSource = ds.Tables["studentMarks"].DefaultView;
+
+            displayGrid.Visible = true;
+
+            displayGrid.AllowUserToAddRows = false;
+        }
     }
+   
 }
