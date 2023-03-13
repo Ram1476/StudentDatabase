@@ -13,7 +13,7 @@ namespace StudentDatabase
     public partial class MenuForm : Form
     {
         bool sideBar = false;
-        public MenuForm()
+        public MenuForm() 
         {
             InitializeComponent();
         }
