@@ -17,13 +17,18 @@ namespace StudentDatabase
 {
     public partial class MainMenu : Form
     {
+        
         public MainMenu()
         {
             InitializeComponent();
+            
         }
         Studentdetails Adding = new Studentdetails();
         DateTime NowTime = DateTime.Now;
-        private void btnStart_Click(object sender, EventArgs e)
+        int count = 0;
+        public static int Transfer;
+
+       private void btnStart_Click(object sender, EventArgs e)
         {
             string path = ConfigurationManager.AppSettings["StudentData.CSV"];
             string processed = ConfigurationManager.AppSettings["Processed.CSV"];
@@ -48,7 +53,7 @@ namespace StudentDatabase
                     {
                         var csvContext = new CsvContext();
                         var students = csvContext.Read<Students>("StudentMarks.csv", csvFiledescription);
-                        int count = 0;
+                        
                         int checkvalue = 0;
                         
 
@@ -107,6 +112,7 @@ namespace StudentDatabase
                         {
                             throw new Exception("Data Already Exist in the dataBase");
                         }
+                        Transfer = count;
                     }
                     catch (Exception ex)
                     {

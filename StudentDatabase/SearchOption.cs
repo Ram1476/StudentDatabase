@@ -21,11 +21,15 @@ namespace StudentDatabase
             InitializeComponent();
             displayGrid.Visible = false;
             displayGrid.AllowUserToDeleteRows = true;
+
+            ScrollValue = 0;
+           
             
-            
-            
+
         }
 
+        int ScrollValue ;
+        
         SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["StudentDBCS"].ConnectionString);
 
         
@@ -104,7 +108,7 @@ namespace StudentDatabase
             // TODO: This line of code loads data into the 'studentsRecordDataSet1.studentMarks' table. You can move, or remove it, as needed.
             this.studentMarksTableAdapter.Fill(this.studentsRecordDataSet.studentMarks);
 
-          
+            
 
 
         }
@@ -209,6 +213,88 @@ namespace StudentDatabase
         private void SearchOp_Activated(object sender, EventArgs e)
         {
             
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            MainMenu NewValue = new MainMenu();
+
+            SqlCommand cmc = new SqlCommand("Select count (*) From StudentMarks", Con);
+            Con.Open();
+            int count = (int)cmc.ExecuteScalar();
+            Con.Close();
+
+            SqlDataAdapter cmd = new SqlDataAdapter($"Select id,StudentName,StudentRollNo,SubjectName,SubjectMarks from StudentMarks;", Con);
+
+            
+
+            DataSet ds = new DataSet();
+            
+            
+            if (ScrollValue <= 0) 
+            {
+                ScrollValue = 0;    
+            }
+
+            if (ScrollValue >= count) 
+            {
+                ScrollValue = count - 5; 
+            }
+            
+            ds.Clear();
+            
+
+            cmd.Fill(ds, ScrollValue, 5, "StudentMarks");
+
+            displayGrid.DataSource = ds.Tables["studentMarks"].DefaultView;
+
+            displayGrid.Visible = true;
+
+            displayGrid.AllowUserToAddRows = false;
+
+            ScrollValue += 5 ;
+
+            
+
+        }
+
+        private void buttonPrevious_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmc = new SqlCommand("Select count (*)  From StudentMarks", Con);
+            Con.Open();
+            int count = (int)cmc.ExecuteScalar();
+            Con.Close ();
+
+            SqlDataAdapter cmd = new SqlDataAdapter($"Select id,StudentName,StudentRollNo,SubjectName,SubjectMarks from StudentMarks;", Con);
+
+            DataSet ds = new DataSet();
+
+            
+            if (ScrollValue >  count)
+            {
+                ScrollValue = count-5;
+            }
+            else if (ScrollValue == count) 
+            {
+                ScrollValue = 10;
+            }
+            ds.Clear();
+            if (ScrollValue >= 0)
+            {
+                cmd.Fill(ds, ScrollValue, 5, "StudentMarks");
+            }
+            else 
+            {
+                ScrollValue = 0;
+                cmd.Fill(ds, ScrollValue, 5, "StudentMarks");
+            }
+            displayGrid.DataSource = ds.Tables["studentMarks"].DefaultView;
+
+            displayGrid.Visible = true;
+
+            displayGrid.AllowUserToAddRows = false;
+            ScrollValue -= 5 ;
+
         }
     }
 }
